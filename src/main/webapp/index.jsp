@@ -92,11 +92,11 @@
                     <input class="form-check-input" type="checkbox" id="rememberMe">
                     <label class="form-check-label" for="rememberMe">Remember Me</label>
                 </div>
-                <a href="forgot_password.jsp" class="forgot-password">Forgot Password?</a>
+                <a href="forgotPassword.jsp" class="forgot-password">Forgot Password?</a>
             </div>
             <button type="submit" class="btn login-btn w-100 fw-bold">Login</button>
         </form>
-        <p class="text-center signup-link">Don't have an account? <a href="sign_up.jsp">Sign Up</a></p>
+        <p class="text-center signup-link">Don't have an account? <a href="signUp.jsp">Sign Up</a></p>
     </div>
 </div>
 
