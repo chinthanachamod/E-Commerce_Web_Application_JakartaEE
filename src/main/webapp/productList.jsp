@@ -46,7 +46,7 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="index.jsp">BrandName</a>
+        <a class="navbar-brand" href="signIn.jsp">BrandName</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -56,7 +56,7 @@
                     <a class="nav-link" href="cart.jsp">Cart</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="homePage.jsp">Home</a>
+                    <a class="nav-link" href="index.jsp">Home</a>
                 </li>
             </ul>
         </div>
@@ -66,7 +66,7 @@
 <!-- Hero Section -->
 <div class="hero-section">
     <h1>Welcome to BrandName</h1>
-    <p>Explore our wide range of products. Return to the <a href="index.jsp">Home Page</a>.</p>
+    <p>Explore our wide range of products. Return to the <a href="signIn.jsp">Home Page</a>.</p>
 </div>
 
 <div class="container mt-4">

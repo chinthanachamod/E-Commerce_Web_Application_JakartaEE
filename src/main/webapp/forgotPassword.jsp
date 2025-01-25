@@ -103,7 +103,7 @@
             <button type="submit" class="btn submit-btn w-100 fw-bold">Set Password</button>
         </form>
         <div class="back-to-login">
-            <p><a href="index.jsp">Back to Login</a></p>
+            <p><a href="signIn.jsp">Back to Login</a></p>
         </div>
     </div>
 </div>

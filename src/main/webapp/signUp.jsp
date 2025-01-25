@@ -66,36 +66,37 @@
 <div class="container">
     <div class="signup-box mx-auto">
         <h1 class="text-center">Create an Account</h1>
-        <form>
+        <form action="register" method="post">
             <div class="row mb-3">
                 <div class="col">
-                    <label for="firstName" class="form-label">First Name</label>
-                    <input type="text" id="firstName" class="form-control" placeholder="Enter your first name" required>
+                    <label for="firstName" class="form-label">Full Name</label>
+                    <input name="fullName" type="text" id="firstName" class="form-control" placeholder="Enter your n ame" required>
                 </div>
+                <%--meka hadnna one
                 <div class="col">
                     <label for="lastName" class="form-label">Last Name</label>
                     <input type="text" id="lastName" class="form-control" placeholder="Enter your last name" required>
-                </div>
+                </div>--%>
             </div>
             <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
-                <input type="email" id="email" class="form-control" placeholder="Enter your email" required>
+                <input name="email" type="email" id="email" class="form-control" placeholder="Enter your email" required>
             </div>
             <div class="mb-3">
                 <label for="password" class="form-label">Password</label>
-                <input type="password" id="password" class="form-control" placeholder="Enter your password" required>
+                <input name="password" type="password" id="password" class="form-control" placeholder="Enter your password" required>
             </div>
             <div class="mb-3">
                 <label for="confirmPassword" class="form-label">Confirm Password</label>
-                <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm your password" required>
+                <input name="confirmPassword" type="password" id="confirmPassword" class="form-control" placeholder="Confirm your password" required>
             </div>
             <div class="form-check">
                 <input type="checkbox" id="showPassword" class="form-check-input">
                 <label for="showPassword" class="form-check-label">Show password</label>
             </div>
-            <button type="submit" class="btn signup-btn w-100 fw-bold">Create Account</button>
+            <button type="submit" class="btn signup-btn w-100 fw-bold">Sign Up</button>
         </form>
-        <p class="text-center mt-3">Already have an account? <a href="index.jsp">Sign In</a></p>
+        <p class="text-center mt-3">Already have an account? <a href="signIn.jsp">Sign In</a></p>
     </div>
 </div>
 

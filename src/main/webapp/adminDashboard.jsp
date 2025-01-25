@@ -46,7 +46,7 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="index.jsp">BrandName</a>
+        <a class="navbar-brand">BrandName</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -65,7 +65,7 @@
 
 <div class="hero-section">
     <h1>Welcome to Admin Panel</h1>
-    <p>Manage your e-commerce application with ease. Access the <a href="index.jsp">Home Page</a> for a customer view.</p>
+    <p>Manage your e-commerce application with ease. Access the <a href="signIn.jsp">Home Page</a> for a customer view.</p>
 </div>
 
 <div class="container mt-5">
