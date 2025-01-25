@@ -1,28 +1,39 @@
 package org.example.ecommerce_application_jakartaee;
 
-import java.io.*;
+import jakarta.annotation.Resource;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
-import jakarta.servlet.http.*;
-import jakarta.servlet.annotation.*;
+import javax.sql.DataSource;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.ResultSet;
 
 @WebServlet(name = "helloServlet", value = "/hello-servlet")
 public class HelloServlet extends HttpServlet {
-    private String message;
-
-    public void init() {
-        message = "Hello World!";
-    }
+    @Resource(name= "java:comp/env/jdbc/pool")
+    private DataSource dataSource;
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        response.setContentType("text/html");
+        try {
+            Connection connection = dataSource.getConnection();
+            ResultSet resultSet = connection.prepareStatement("select * from users").executeQuery();
 
-        // Hello
-        PrintWriter out = response.getWriter();
-        out.println("<html><body>");
-        out.println("<h1>" + message + "</h1>");
-        out.println("</body></html>");
+            while (resultSet.next()) {
+                String id = resultSet.getString(1);
+                String name = resultSet.getString(2);
+                String address = resultSet.getString(3);
+                System.out.println(id + " " + name + " " + address);
+
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
-    public void destroy() {
-    }
+
 }

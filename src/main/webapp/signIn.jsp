@@ -17,7 +17,7 @@
         }
 
         .login-box {
-            background: rgba(255, 255, 255, 0.9); /* Adds slight transparency */
+            background: rgba(255, 255, 255, 0.9);
             border-radius: 10px;
             padding: 30px 40px;
             width: 100%;
@@ -41,12 +41,12 @@
             border: none;
             color: #fff;
             font-weight: bold;
-            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth animation */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .login-btn:hover {
-            transform: scale(1.1); /* Slightly increases the size */
-            box-shadow: 0 4px 15px rgba(106, 17, 203, 0.4); /* Adds a glowing shadow */
+            transform: scale(1.1);
+            box-shadow: 0 4px 15px rgba(106, 17, 203, 0.4);
         }
 
         .forgot-password, .signup-link a {
@@ -63,22 +63,22 @@
             margin-top: 20px;
         }
 
-        .password-toggle {
-            cursor: pointer;
+        .google-signin {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
-<%--
-login form
---%>
 <div class="container">
     <div class="login-box mx-auto">
         <h1 class="text-center">Welcome</h1>
         <p class="text-center">Please login to your account</p>
         <form>
             <div class="mb-3">
-                <label for="email" class="form-label">Email </label>
+                <label for="email" class="form-label">Email</label>
                 <input type="email" id="email" class="form-control" placeholder="Enter your email">
             </div>
             <div class="mb-3">
@@ -99,13 +99,37 @@ login form
             </div>
             <button type="submit" class="btn login-btn w-100 fw-bold">Login</button>
         </form>
+        <div class="google-signin">
+            <div id="g_id_onload"
+                 data-client_id="YOUR_GOOGLE_CLIENT_ID"
+                 data-context="signin"
+                 data-ux_mode="popup"
+                 data-callback="handleCredentialResponse"
+                 data-auto_prompt="false">
+            </div>
+            <div class="g_id_signin"
+                 data-type="standard"
+                 data-shape="rectangular"
+                 data-theme="outline"
+                 data-text="signin_with"
+                 data-size="large"
+                 data-logo_alignment="left">
+            </div>
+        </div>
         <p class="text-center signup-link">Don't have an account? <a href="signUp.jsp">Sign Up</a></p>
     </div>
 </div>
 
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Google Sign-In JavaScript -->
+<script src="https://accounts.google.com/gsi/client" async defer></script>
 <script>
+    // Function to handle the response from Google Sign-In
+    function handleCredentialResponse(response) {
+        console.log("Google ID token (JWT): " + response.credential);
+        // Send this token to your server to verify the user's identity and process further
+    }
+
+    // Password visibility toggle
     const togglePassword = document.getElementById('togglePassword');
     const passwordField = document.getElementById('password');
     const toggleIconText = document.getElementById('toggleIconText');
