@@ -75,8 +75,8 @@
             <div class="card text-center shadow-sm">
                 <div class="card-body">
                     <h5 class="card-title">Manage Products</h5>
-                    <p class="card-text">Add, update, or delete products in the inventory.</p>
-                    <a href="manage_products.jsp" class="btn btn-primary">Go to Products</a>
+                    <p class="card-text">Add, Update, or Delete products in the inventory.</p>
+                    <a href="admin/products.jsp" class="btn btn-primary">Go to Products</a>
                 </div>
             </div>
         </div>
@@ -85,23 +85,23 @@
         <div class="col-md-6 col-lg-4">
             <div class="card text-center shadow-sm">
                 <div class="card-body">
-                    <h5 class="card-title">Manage Categories</h5>
-                    <p class="card-text">Add, update, or delete product categories.</p>
-                    <a href="manage_categories.jsp" class="btn btn-primary">Go to Categories</a>
+                    <h5 class="card-title">Manage Customers</h5>
+                    <p class="card-text">Add, Update or Delete Customers</p>
+                    <a href="admin/customers.jsp" class="btn btn-primary">Go to Customers</a>
                 </div>
             </div>
         </div>
 
-        <!-- Manage Users -->
+        <%--<!-- Manage Users -->
         <div class="col-md-6 col-lg-4">
             <div class="card text-center shadow-sm">
                 <div class="card-body">
                     <h5 class="card-title">Manage Users</h5>
-                    <p class="card-text">View, activate, or deactivate customer accounts.</p>
+                    <p class="card-text">View, Activate, or Deactivate Customer Accounts.</p>
                     <a href="manage_users.jsp" class="btn btn-primary">Go to Users</a>
                 </div>
             </div>
-        </div>
+        </div>--%>
 
         <!-- View Orders -->
         <div class="col-md-6 col-lg-4">
@@ -109,7 +109,7 @@
                 <div class="card-body">
                     <h5 class="card-title">View Orders</h5>
                     <p class="card-text">View and manage customer orders.</p>
-                    <a href="view_orders.jsp" class="btn btn-primary">Go to Orders</a>
+                    <a href="admin/orders.jsp" class="btn btn-primary">Go to Orders</a>
                 </div>
             </div>
         </div>

@@ -157,7 +157,8 @@
         <div class="collapse navbar-collapse justify-content-end">
             <div class="navbar-nav">
                 <a class="nav-link" href="index.jsp">Home</a>
-                <a class="nav-link" href="productList.jsp">Products</a>
+                <a class="nav-link" href="product-List">Products</a>
+                <a class="nav-link" href="adminDashboard.jsp">Admin</a>
                 <a class="nav-link" href="signIn.jsp">Sign-In</a>
             </div>
         </div>

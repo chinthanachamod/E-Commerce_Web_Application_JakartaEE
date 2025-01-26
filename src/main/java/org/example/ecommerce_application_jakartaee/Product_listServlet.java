@@ -10,6 +10,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import javax.sql.DataSource;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -17,7 +18,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet(name = "Product_listServlet", value = "/product-list")
+@WebServlet(name = "Product_listServlet", value = "/product-List")
 public class Product_listServlet extends HttpServlet {
     @Resource(name= "java:comp/env/jdbc/pool")
     private DataSource dataSource;
@@ -48,8 +49,11 @@ public class Product_listServlet extends HttpServlet {
 
             }
 
+
+            System.out.println(products.toString());
+
             req.setAttribute("products", products);
-            RequestDispatcher rd = req.getRequestDispatcher("products.jsp");
+            RequestDispatcher rd = req.getRequestDispatcher("productList.jsp");
             rd.forward(req,resp);
 
 

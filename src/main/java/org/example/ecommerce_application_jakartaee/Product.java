@@ -1,8 +1,23 @@
 package org.example.ecommerce_application_jakartaee;
 
+
 public class Product {
     private int id;
     private String name;
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                ", quantity=" + quantity +
+                ", categoryId=" + categoryId +
+                ", description='" + description + '\'' +
+                ", image_path='" + image_path + '\'' +
+                '}';
+    }
+
     private double price;
     private   int quantity;
     private   int categoryId;

@@ -21,9 +21,9 @@ public class RegistrationSaveServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         System.out.println("dopost in regi");
 
-        String userName = req.getParameter("user_name");
-        String email = req.getParameter("email");
-        String password = req.getParameter("password");
+        String userName = "admin"; /*req.getParameter("user_name");*/
+        String email = "admin@gmail.com"; /*req.getParameter("email");*/
+        String password = "admin"; /*req.getParameter("password");*/
 
         try( Connection connection = dataSource.getConnection()) {
             PreparedStatement pstm = connection.prepareStatement("INSERT INTO users(userName,email,password,role) VALUES (?,?,?,?) ");
@@ -31,13 +31,16 @@ public class RegistrationSaveServlet extends HttpServlet {
             pstm.setString(2,email);
             pstm.setString(3,password);
             pstm.setString(4,"customer");
-            int i = pstm.executeUpdate();
+//            int i = pstm.executeUpdate();
 
-            if (i >0) {
-                resp.sendRedirect("registration-save.jsp?message=customer save successfully");
-            }else {
-                resp.sendRedirect("registration-save.jsp?error=customer save failed");
-            }
+            System.out.println("user");
+
+//            if (i >0) {
+////                resp.sendRedirect("index.jsp?message=customer save successfully");
+//                resp.sendRedirect("index.jsp?message=customer save successfully");
+//            }else {
+//                resp.sendRedirect("registration-save.jsp?error=customer save failed");
+//            }
 
 
         } catch (Exception e) {

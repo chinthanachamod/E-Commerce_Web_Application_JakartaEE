@@ -97,7 +97,7 @@
                 </div>
                 <a href="forgotPassword.jsp" class="forgot-password">Forgot Password?</a>
             </div>
-            <button type="submit" class="btn login-btn w-100 fw-bold">Login</button>
+            <a href="index.jsp" type="submit" class="btn login-btn w-100 fw-bold">Login</a>
         </form>
         <div class="google-signin">
             <div id="g_id_onload"

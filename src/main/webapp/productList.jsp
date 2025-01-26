@@ -1,4 +1,5 @@
-<%--
+<%@ page import="org.example.ecommerce_application_jakartaee.Product" %>
+<%@ page import="java.util.List" %><%--
   Created by IntelliJ IDEA.
   User: PC
   Date: 1/21/2025
@@ -6,6 +7,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%--<%@ page import="org.example.ecommerce_application_jakartaee." %>&lt;%&ndash;--%>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -128,20 +130,30 @@
     </div>
     </div>
 
+<%
+    List<Product> dataList = (List<Product>) request.getAttribute("products");
+    if (dataList != null && !dataList.isEmpty())
+%>
     <!-- Product List -->
-    <div class="row" id="productContainer">
-        <!-- iOS Phones -->
-        <div class="col-md-4 mb-4">
-            <div class="card product-card">
-                <img src="images/Products/iphone%2015%20pro%20max.png" class="card-img-top" alt="iPhone 15 Pro Max Image">
-                <div class="card-body">
-                    <h6 class="card-title">iPhone 15 Pro Max</h6>
-                    <p class="card-text">Category: iOS Phones</p>
-                    <p class="card-text">Price: $1,299</p>
-                    <a href="cart.jsp?productId=1" class="btn btn-primary w-100">Add to Cart</a>
-                </div>
+<div class="row" id="productContainer">
+    <!-- iOS Phones -->
+    <%
+        for (Product product : dataList) {
+    %>
+    <div class="col-md-4 mb-4">
+        <div class="card product-card">
+            <img src="images/Products/iPhone%2015.png" class="card-img-top" alt="iPhone 15 Image">
+            <div class="card-body">
+                <h6 class="card-title"><%=product.getName()%></h6>
+                <p class="card-text"><%=product.getCategoryId()%></p>
+                <p class="card-text"><%=product.getPrice()%></p>
+                <a href="cart.jsp?productId=2" class="btn btn-primary w-100">Add to Cart</a>
             </div>
         </div>
+    </div>
+    <%
+        }
+    %>
         <div class="col-md-4 mb-4">
             <div class="card product-card">
                 <img src="images/Products/iPhone%2015.png" class="card-img-top" alt="iPhone 15 Image">
