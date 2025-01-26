@@ -127,10 +127,10 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 <script>
     // Example customer data
-    /*const customers = [
+    const customers = [
         { id: 'C001', name: 'John Doe', email: 'john@example.com', phone: '1234567890' },
         { id: 'C002', name: 'Jane Smith', email: 'jane@example.com', phone: '0987654321' }
-    ];*/
+    ];
 
     // Function to load customer data into the table
     function loadCustomerTable() {
