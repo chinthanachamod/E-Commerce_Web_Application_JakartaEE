@@ -3,6 +3,7 @@ package org.example.ecommerce_application_jakartaee;
 import jakarta.annotation.Resource;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
@@ -12,60 +13,55 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 
 @WebServlet(name = "SignInServlet", value = "/signin")
-public class SignInServlet extends HelloServlet {
-    @Resource(name= "java:comp/env/jdbc/pool")
+public class SignInServlet extends HttpServlet {
+
+    @Resource(name = "jdbc/pool")
     private DataSource dataSource;
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println("dopost in signIn");
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String email = request.getParameter("email");
+        String password = request.getParameter("password");
 
-        String email = req.getParameter("email");
-        String password = req.getParameter("password");
+        // Basic input validation
+        if (email == null || email.trim().isEmpty() || password == null || password.trim().isEmpty()) {
+            request.setAttribute("errorMessage", "Email and Password are required!");
+            request.getRequestDispatcher("login.jsp").forward(request, response);
+            return;
+        }
 
-        if (password != null && !password.isEmpty() && email != null && !email.isEmpty()) {
-            try(Connection connection = dataSource.getConnection();) {
-                PreparedStatement pstm = connection.prepareStatement("select password,role,userId from users where email=?");
-                pstm.setString(1, email);
+        try (Connection connection = dataSource.getConnection()) {
+            // Query to check if the user exists with the given credentials
+            String sql = "SELECT id, name FROM users WHERE email = ? AND password = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, email);
+            preparedStatement.setString(2, password); // Note: Use hashed passwords in production
 
+            ResultSet resultSet = preparedStatement.executeQuery();
 
-                ResultSet rs = pstm.executeQuery();
-                if (rs.next() ) {
-                    Object userId = rs.getObject(3);
-                    System.out.println("userId"+ userId);
-                    if (password.equals(rs.getString(1))) {
-                        if (rs.getString(2).equals("admin")) {
-                            /*Object userId = rs.getObject(3);*/
-                            System.out.println("userId"+ userId);
-                            HttpSession session = req.getSession();     //new add 2 line
-                            session.setAttribute("userId", userId);
+            if (resultSet.next()) {
+                // Successful login
+                int userId = resultSet.getInt("id");
+                String name = resultSet.getString("name");
 
-                            resp.sendRedirect("products");  //admin/products.jsp?message=login successfully
-                        }else{
-                            HttpSession session = req.getSession();     //new add 2 line
-                            session.setAttribute("userId", userId);
-                            resp.sendRedirect("index.jsp?message=user login success");
-                        }
+                // Set session attributes
+                HttpSession session = request.getSession();
+                session.setAttribute("userId", userId);
+                session.setAttribute("userName", name);
 
-
-                    }else {
-                        resp.sendRedirect("index.jsp?error=wrong email or password");
-                    }
-                }else{
-                    resp.sendRedirect("index.jsp?error=wrong email or password");
-                }
-
-
-
-            } catch (SQLException e) {
-                e.printStackTrace();
-                resp.sendRedirect("signin?error=wrong email or password");
+                // Redirect to the home page or dashboard
+                response.sendRedirect("home.jsp");
+            } else {
+                // Invalid credentials
+                request.setAttribute("errorMessage", "Invalid email or password.");
+                request.getRequestDispatcher("login.jsp").forward(request, response);
             }
 
-
+        } catch (Exception e) {
+            e.printStackTrace();
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "An error occurred while processing your request.");
         }
     }
 }

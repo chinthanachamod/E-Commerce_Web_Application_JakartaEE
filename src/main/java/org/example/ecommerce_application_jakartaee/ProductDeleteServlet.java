@@ -27,7 +27,7 @@ public class ProductDeleteServlet extends HttpServlet {
 
         Connection connection = null;
         try {
-           connection = dataSource.getConnection();
+            connection = dataSource.getConnection();
             PreparedStatement pstm = connection.prepareStatement("DELETE FROM products WHERE productId = ?");
             pstm.setInt(1, id);
             int i = pstm.executeUpdate();
@@ -51,30 +51,4 @@ public class ProductDeleteServlet extends HttpServlet {
 
     }
 
-    /*@Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println("in doPost of delete servlet");
-
-        String idString = req.getParameter("id");
-        int id = Integer.parseInt(idString);
-
-        try {
-            Connection connection = dataSource.getConnection();
-            PreparedStatement pstm = connection.prepareStatement("DELETE FROM products WHERE productId = ?");
-            pstm.setInt(1, id);
-            int i = pstm.executeUpdate();
-            if (i >0) {
-                resp.sendRedirect("admin/products.jsp?message=product delete successfully");
-            }else {
-                resp.sendRedirect("admin/products.jsp?error=product not deleted");
-            }
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-            resp.sendRedirect("admin/products.jsp?error=product not deleted");
-
-        }
-
-
-    }*/
 }

@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 
-@WebServlet(name = "RegistrationSaveServlet", value="/registration-save")
+@WebServlet(name = "RegistrationSaveServlet", value="/register")
 public class RegistrationSaveServlet extends HttpServlet {
     @Resource(name= "java:comp/env/jdbc/pool")
     private DataSource dataSource;

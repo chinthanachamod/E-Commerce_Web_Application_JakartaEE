@@ -157,8 +157,7 @@
         <div class="collapse navbar-collapse justify-content-end">
             <div class="navbar-nav">
                 <a class="nav-link" href="index.jsp">Home</a>
-                <a class="nav-link" href="#">Products</a>
-                <a class="nav-link" href="#">About Us</a>
+                <a class="nav-link" href="productList.jsp">Products</a>
                 <a class="nav-link" href="signIn.jsp">Sign-In</a>
             </div>
         </div>
@@ -166,15 +165,17 @@
 </nav>
 
 <!-- Hero Section -->
-<header class="hero bg-dark text-center">
-    <div class="brand-name">Welcome to CMobile</div></br>
-    <div class="search-bar mx-auto" style="width: 60%;">
+<header class="hero bg-dark text-center text-white py-4">
+    <div class="brand-name fs-1 fw-bold">- CMobile -</div>
+    <p class="slogan fs-4 mt-2">"Bringing the World to Your Fingertips!"</p>
+    <%--<div class="search-bar mx-auto" style="width: 60%;">
         <div class="input-group">
             <input type="text" class="form-control" placeholder="Search mobile phones...">
             <button class="btn btn-primary">Search</button>
         </div>
-    </div>
+    </div>--%>
 </header>
+
 
 <!-- Background Animation Section -->
 <section class="background-animation">

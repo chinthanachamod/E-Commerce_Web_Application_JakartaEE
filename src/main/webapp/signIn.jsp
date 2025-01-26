@@ -76,7 +76,7 @@
     <div class="login-box mx-auto">
         <h1 class="text-center">Welcome</h1>
         <p class="text-center">Please login to your account</p>
-        <form>
+        <form action="signin" method="post">
             <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
                 <input type="email" id="email" class="form-control" placeholder="Enter your email">
